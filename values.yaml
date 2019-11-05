@@ -17,7 +17,7 @@ service:
   port: 9087
 
 podAnnotations:
-  iam.amazonaws.com/role: arn:aws:iam::773355297247:role/eks-sns-forwarder
+  iam.amazonaws.com/role: ""
 
 servicemonitor:
   enabled: true
