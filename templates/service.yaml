@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "alertmanager-sns-forwarder.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
+    helm.sh/chart: {{ include "alertmanager-sns-forwarder.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      name: webhook-port
+  selector:
+    app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

@@ -1,0 +1,20 @@
+{{- if .Values.servicemonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "alertmanager-sns-forwarder.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
+    helm.sh/chart: {{ include "alertmanager-sns-forwarder.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      name: webhook-port
+  endpoints:
+  - port: webhook-port
+    scrapeTimeout: "30s"
+    interval: "40s"
+{{- end }}
