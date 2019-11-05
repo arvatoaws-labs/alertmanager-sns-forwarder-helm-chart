@@ -19,6 +19,9 @@ service:
 servicemonitor:
   enabled: true
 
+sns:
+  arn-prefix: ""
+
 resources: 
   limits:
     memory: 1Gi

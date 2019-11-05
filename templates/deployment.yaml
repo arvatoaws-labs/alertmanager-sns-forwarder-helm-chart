@@ -34,6 +34,7 @@ spec:
           ports:
             - containerPort: 9087
               name: webhook-port
+          args: ["--addr=:9087", "--debug", "--arn-prefix={{ .Values.sns.arn-prefix}}"]
           livenessProbe:
             httpGet:
               path: /health
