@@ -46,7 +46,7 @@ spec:
               port: webhook-port
             initialDelaySeconds: 30
             timeoutSeconds: 10
-          env:
+          env:l
             - name: AWS_REGION
               value: "eu-central-1"
             - name: AWS_DEFAULT_REGION
