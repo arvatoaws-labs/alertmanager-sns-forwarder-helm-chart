@@ -19,11 +19,15 @@ service:
 podAnnotations:
   iam.amazonaws.com/role: ""
 
+
 servicemonitor:
   enabled: true
 
 sns:
-  arn-prefix: ""
+  forwarder:
+    debug: true
+    anr:
+      prefix: ""
 
 resources: 
   limits:

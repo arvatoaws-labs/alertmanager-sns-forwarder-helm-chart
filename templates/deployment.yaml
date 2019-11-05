@@ -27,8 +27,6 @@ spec:
       annotations:
 {{ toYaml .Values.podAnnotations | indent 8 }}
     {{- end }}
-      annotations:
-        iam.amazonaws.com/role: sns-forwarder-role
     spec:
       restartPolicy: Always
       containers:
@@ -38,7 +36,6 @@ spec:
           ports:
             - containerPort: 9087
               name: webhook-port
-          args: ["--addr=:9087", "--debug", "--arn-prefix={{ .Values.sns.arn-prefix}}"]
           livenessProbe:
             httpGet:
               path: /health
@@ -56,6 +53,12 @@ spec:
               value: "eu-central-1"
             - name: AWS_DEFAULT_REGION
               value: "eu-central-1"
+            - name: SNS_FORWARDER_ADDRESS
+              value: ":9087"
+            - name: SNS_FORWARDER_DEBUG
+              value: {{ .Values.sns.forwarder.debug }}     
+            - name: SNS_FORWARDER_ARN_PREFIX
+              value: {{ .Values.sns.forwarder.anr.prefix }}                       
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
