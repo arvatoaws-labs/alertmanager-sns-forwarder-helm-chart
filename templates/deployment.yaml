@@ -23,6 +23,10 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+    {{- if .Values.podAnnotations }}
+      annotations:
+{{ toYaml .Values.podAnnotations | indent 8 }}
+    {{- end }}
       annotations:
         iam.amazonaws.com/role: sns-forwarder-role
     spec:
@@ -47,7 +51,7 @@ spec:
               port: webhook-port
             initialDelaySeconds: 30
             timeoutSeconds: 10
-          env:l
+          env:
             - name: AWS_REGION
               value: "eu-central-1"
             - name: AWS_DEFAULT_REGION

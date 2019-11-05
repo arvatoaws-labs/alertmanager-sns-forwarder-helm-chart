@@ -16,6 +16,9 @@ service:
   type: ClusterIP
   port: 9087
 
+podAnnotations:
+  iam.amazonaws.com/role: arn:aws:iam::773355297247:role/eks-sns-forwarder
+
 servicemonitor:
   enabled: true
 
