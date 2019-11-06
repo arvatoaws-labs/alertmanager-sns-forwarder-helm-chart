@@ -18,6 +18,7 @@ service:
 
 podAnnotations:
   iam.amazonaws.com/role: ""
+  
 
 
 servicemonitor:
@@ -26,7 +27,7 @@ servicemonitor:
 sns:
   forwarder:
     debug: true
-    anr:
+    arn:
       prefix: ""
 
 resources: 
