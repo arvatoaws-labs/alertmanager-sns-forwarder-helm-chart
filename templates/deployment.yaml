@@ -58,7 +58,7 @@ spec:
             - name: SNS_FORWARDER_DEBUG
               value: {{ .Values.sns.forwarder.debug }}     
             - name: SNS_FORWARDER_ARN_PREFIX
-              value: {{ .Values.sns.forwarder.anr.prefix }}                       
+              value: {{ .Values.sns.forwarder.arn.prefix }}                       
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
