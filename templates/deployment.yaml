@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "alertmanager-sns-forwarder.fullname" . }}
@@ -56,9 +56,9 @@ spec:
             - name: SNS_FORWARDER_ADDRESS
               value: ":9087"
             - name: SNS_FORWARDER_DEBUG
-              value: {{ .Values.sns.forwarder.debug }}     
+              value: "{{ .Values.sns.forwarder.debug }}"
             - name: SNS_FORWARDER_ARN_PREFIX
-              value: {{ .Values.sns.forwarder.arn.prefix }}                       
+              value: "{{ .Values.sns.forwarder.arn.prefix }}"                    
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

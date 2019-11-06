@@ -17,7 +17,7 @@ service:
   port: 9087
 
 podAnnotations:
-  iam.amazonaws.com/role: ""
+  iam.amazonaws.com/role: "arn:aws:iam::773355297247:role/eks-sns-forwarder"
   
 
 
@@ -28,7 +28,7 @@ sns:
   forwarder:
     debug: true
     arn:
-      prefix: ""
+      prefix: "arn:aws:sns:eu-central-1:773355297247:eks-alertmanager-sns"
 
 resources: 
   limits:
