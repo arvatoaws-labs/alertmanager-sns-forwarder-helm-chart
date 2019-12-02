@@ -24,6 +24,11 @@ podAnnotations:
 servicemonitor:
   enabled: true
 
+args:
+  enabled: false
+  arn:
+    prefix: ""
+
 sns:
   forwarder:
     debug: true
