@@ -48,6 +48,9 @@ spec:
               port: webhook-port
             initialDelaySeconds: 30
             timeoutSeconds: 10
+          {{- if .Values.args.enabled }}
+          arg: ["--addr=:9087", "--debug", "--arn-prefix={{ .Values.args.arn.prefix }}"]          
+          {{- end }}
           env:
             - name: AWS_REGION
               value: "eu-central-1"
