@@ -11,8 +11,9 @@ metadata:
     svcmon: prometheus
 spec:
   selector:
-    app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    matchLabels:
+      app.kubernetes.io/name: {{ include "alertmanager-sns-forwarder.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
   endpoints:
   - port: webhook-port
     scrapeTimeout: "30s"
