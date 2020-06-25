@@ -35,13 +35,13 @@ sns:
     arn:
       prefix: ""
 
-resources: 
-  limits:
-    memory: 1Gi
-    cpu: 0.5
-  requests:
-    cpu: 0.2
-    memory: 0.5Gi
+resources: {}
+  #limits:
+  #  memory: 1Gi
+  #  cpu: 0.5
+  #requests:
+  #  cpu: 0.2
+  #  memory: 0.5Gi
 
 nodeSelector: {}
 
