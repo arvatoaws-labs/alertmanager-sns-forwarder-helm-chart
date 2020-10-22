@@ -28,6 +28,9 @@ spec:
 {{ toYaml .Values.podAnnotations | indent 8 }}
     {{- end }}
     spec:
+      {{- if .Values.serviceAccount }}
+      serviceAccountName: {{ .Values.serviceAccount }}
+      {{- end }}
       restartPolicy: Always
       containers:
         - name: {{ .Chart.Name }}

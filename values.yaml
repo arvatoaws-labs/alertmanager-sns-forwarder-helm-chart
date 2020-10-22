@@ -17,9 +17,9 @@ service:
   port: 9087
 
 podAnnotations:
-  iam.amazonaws.com/role: ""
+  # iam.amazonaws.com/role: ""
   
-
+# serviceAccount: ""
 
 servicemonitor:
   enabled: true
