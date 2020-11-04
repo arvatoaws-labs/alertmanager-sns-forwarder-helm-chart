@@ -21,6 +21,8 @@ podAnnotations:
   
 # serviceAccount: ""
 
+# securityContext:
+
 servicemonitor:
   enabled: true
 

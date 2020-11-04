@@ -31,6 +31,10 @@ spec:
       {{- if .Values.serviceAccount }}
       serviceAccountName: {{ .Values.serviceAccount }}
       {{- end }}
+      {{- with .Values.securityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       restartPolicy: Always
       containers:
         - name: {{ .Chart.Name }}
