@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: datareply/alertmanager-sns-forwarder
+  repository: ghcr.io/arvatoaws-labs/alertmanager-sns-forwarder-mirror
   tag: latest
   pullPolicy: Always
 
